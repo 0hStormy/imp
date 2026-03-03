@@ -9,7 +9,7 @@
 <body>
     <div id="root" class="bg">
         <div class="flex center expand vert blur">
-            <div class="frame flex vert">
+            <div class="frame flex vert auth-prompt">
                 <h2 class="center">IMP Login</h2>
                 <hr>
                 <span>Username:</span>
@@ -18,6 +18,10 @@
                 <input type="password" id="passwordField">
                 <button id="loginSubmit">Login</button>
                 <a href="signup.html">Don't have an account?</a>
+                <div class="error-popup" id="errorPopup">
+                    <img src="error.png" alt="">
+                    <span id="errorPopupSpan">Error</span>
+                </div>
             </div>
         </div>
     </div>

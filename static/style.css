@@ -75,6 +75,30 @@ body {
   text-shadow: 0 1px #FFFFFF;
 }
 
+.auth-prompt {
+    min-width: 480px;
+}
+
+.error-popup {
+  border-radius: 4px;
+  border: solid 1px #e4dddd;
+  background-image: linear-gradient(#e9b4b4, #f3efef);
+  box-shadow: 0 1px 1px 0 #c5b9b9, inset 0 0 4px 0 #f3efef;
+  padding: 16px;
+  margin: 4px;
+  transition: 80ms cubic-bezier(0.19, 1, 0.22, 1);
+  color: #484040;
+  text-shadow: 0 1px #FFFFFF;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  max-width: 480px;
+}
+
+.error-popup img {
+    width: 32px;
+}
+
 button {
   border-radius: 4px;
   border: solid 1px #DDE3E4;

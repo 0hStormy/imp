@@ -17,11 +17,15 @@ async function createAccount(username, password) {
         body: JSON.stringify(requestData)
       }
     );
-    if (!response.ok) {
-        throw new Error('Network Error');
-    }
     const codeJSON = await response.json();
-    console.log(codeJSON);
+    if (codeJSON.token) {
+      location.replace("login.html")
+    } else {
+      errorPopup = document.getElementById("errorPopup");
+      errorPopup.style.display = "flex";
+      errorPopupSpan = document.getElementById("errorPopupSpan");
+      errorPopupSpan.textContent = codeJSON.error;
+    }
   } catch (error) {
     console.error('Error fetching auth code:', error);
     throw error;
@@ -45,11 +49,16 @@ async function authenticate(username, password) {
         body: JSON.stringify(requestData)
       }
     );
-    if (!response.ok) {
-        throw new Error('Network Error');
-    }
     const codeJSON = await response.json();
-    console.log(codeJSON);
+    if (codeJSON.token) {
+      localStorage.setItem("token", codeJSON.token);
+      location.replace("/");
+    } else {
+      errorPopup = document.getElementById("errorPopup");
+      errorPopup.style.display = "flex";
+      errorPopupSpan = document.getElementById("errorPopupSpan");
+      errorPopupSpan.textContent = codeJSON.error;
+    }
   } catch (error) {
     console.error('Error fetching auth code:', error);
     throw error;
